@@ -25,8 +25,6 @@ int determine_dir(char direct[])
 }
 
 
-
-
 void fd_generator(char *direct, int *index)
 {
 	int regular = 0;
