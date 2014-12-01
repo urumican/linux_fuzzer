@@ -7,11 +7,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-int determine_num()
-{
-
-}
-
 int determine_dir(char direct[])
 {
 	struct stat status;
