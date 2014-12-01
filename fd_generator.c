@@ -28,6 +28,7 @@ int determine_dir(char direct[])
 void fd_generator(char *direct, int *index)
 {
 	int regular = 0;
+	int count, i;
 	char *abs_dir;
 	DIR *d;
 	struct dirent *dir;
@@ -39,9 +40,13 @@ void fd_generator(char *direct, int *index)
 		while ((dir = readdir(d)) != NULL)
 		{
 			if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
-			{
-				abs_dir = strcat(direct, "/");
-				abs_dir = strcat(abs_dir, dir->d_name);
+			{	
+				for(i = 0; dir->d_name[i] != '\0'; i++)
+					count++;
+				abs_dir = (char*)malloc((count + 2) * sizeof(char));
+				strcpy(abs_dir, direct);
+				strcat(abs_dir, "/");
+				strcat(abs_dir, dir->d_name);
 
 				pool->fd_pool[*index] = open(abs_dir, O_RDONLY);
 				(*index)++;
