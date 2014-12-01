@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+int dtermin()
+
 int determine_dir(char direct[])
 {
 	struct stat status;
