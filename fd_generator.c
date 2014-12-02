@@ -38,6 +38,7 @@ void fd_generator(char *direct, int *index)
 		{
 			if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
 			{	
+				count = 0;
 				for(i = 0; dir->d_name[i] != '\0'; i++)
 					count++;
 				abs_dir = (char*)malloc((count + 2) * sizeof(char));
